@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <author>
+    <name>Nokia Fans</name>
+  </author>
+  <generator uri="https://hexo.io/">Hexo</generator>
+  <id>https://nokfans.github.io/</id>
+  <link href="https://nokfans.github.io/" rel="alternate"/>
+  <link href="https://nokfans.github.io/atom.xml" rel="self"/>
+  <rights>All rights reserved 2026, Nokia Fans</rights>
+  <subtitle>记录行业信息、技术与思考</subtitle>
+  <title>Nokia Fans 的技术博客</title>
+  <updated>2026-09-23T08:20:41.477Z</updated>
+  <entry>
+    <author>
+      <name>Nokia Fans</name>
+    </author>
+    <category term="技术教程" scheme="https://nokfans.github.io/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/"/>
+    <category term="Hexo" scheme="https://nokfans.github.io/tags/Hexo/"/>
+    <category term="GitHub Pages" scheme="https://nokfans.github.io/tags/GitHub-Pages/"/>
+    <category term="静态博客" scheme="https://nokfans.github.io/tags/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/"/>
+    <content>
+      <![CDATA[<p>Hexo 是 Node 生态里的静态博客生成器。你在本地写 Markdown,Git 负责版本管理,GitHub Pages 负责免费托管。整套流程没有服务器成本,内容本身也天然带着提交历史。</p><p>这篇笔记记录从零搭建的过程。</p><h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>需要 Node.js 18 以上、Git,以及一个 GitHub 账号。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">node -v<br>git --version<br></code></pre></td></tr></table></figure><h2 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">npx hexo-cli init blog<br><span class="hljs-built_in">cd</span> blog<br>npm install<br></code></pre></td></tr></table></figure><p>Hexo 会在 <code>source/_posts/</code> 下放一篇默认文章,<code>_config.yml</code> 是整个站点的配置入口。</p><h2 id="换一个顺眼的主题"><a href="#换一个顺眼的主题" class="headerlink" title="换一个顺眼的主题"></a>换一个顺眼的主题</h2><p>Fluid 主题简洁、中文友好,适合技术博客。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> --depth 1 https://github.com/fluid-dev/hexo-theme-fluid themes/fluid<br></code></pre></td></tr></table></figure><p>然后在 <code>_config.yml</code> 里把 <code>theme</code> 改成 <code>fluid</code>。</p><h2 id="写第一篇文章"><a href="#写第一篇文章" class="headerlink" title="写第一篇文章"></a>写第一篇文章</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npx hexo new <span class="hljs-string">&quot;我的第一篇技术笔记&quot;</span><br></code></pre></td></tr></table></figure><p>文章落在 <code>source/_posts/</code>,正文就是 Markdown,写完保存即可。</p><h2 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npx hexo server<br></code></pre></td></tr></table></figure><p>打开 <code>http://localhost:4000</code> 就能看到效果,改动会即时刷新。</p><h2 id="部署到-GitHub-Pages"><a href="#部署到-GitHub-Pages" class="headerlink" title="部署到 GitHub Pages"></a>部署到 GitHub Pages</h2><p>在 <code>_config.yml</code> 里配置部署目标:</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">deploy:</span><br>  <span class="hljs-attr">type:</span> <span class="hljs-string">git</span><br>  <span class="hljs-attr">repo:</span> <span class="hljs-string">https://github.com/&lt;用户名&gt;/&lt;用户名&gt;.github.io.git</span><br>  <span class="hljs-attr">branch:</span> <span class="hljs-string">main</span><br></code></pre></td></tr></table></figure><p>然后生成并发布:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npx hexo clean &amp;&amp; npx hexo generate &amp;&amp; npx hexo deploy<br></code></pre></td></tr></table></figure><p>等一两分钟,访问 <code>https://&lt;用户名&gt;.github.io</code> 就能看到站点。</p><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>以后每写一篇,<code>hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy</code> 三步就完成更新。工具链搭好之后,时间可以留给内容。</p>]]>
+    </content>
+    <id>https://nokfans.github.io/2026/09/23/build-blog-with-hexo/</id>
+    <link href="https://nokfans.github.io/2026/09/23/build-blog-with-hexo/"/>
+    <published>2026-09-23T08:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>Hexo 是 Node 生态里的静态博客生成器。你在本地写 Markdown,Git 负责版本管理,GitHub Pages 负责免费托管。整套流程没有服务器成本,内容本身也天然带着提交历史。</p>
+<p>这篇笔记记录从零搭建的过程。</p>
+<h2]]>
+    </summary>
+    <title>用 Hexo + Fluid 在 GitHub Pages 上搭建博客</title>
+    <updated>2026-09-23T08:20:41.477Z</updated>
+  </entry>
+</feed>
